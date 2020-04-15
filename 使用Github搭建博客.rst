@@ -26,7 +26,7 @@
    如下图所示, 新建存储库, 存储库的名称为"username.github.io", 其中, username为
    Github账户的名称, 这里我的账户名称为lispon.为了方便, 最好勾选图中的**4**, 这样会自动生成README.md文件.
 
-   .. image:: image/20191029_新建Github存储库.*
+   .. image:: image/20191029_新建Github存储库.png
 
    **注意:** 这里即使设置为Private, 搭建的博客仍然可以被访问.
 
@@ -35,15 +35,15 @@
 
    如下图所示, 点击Settings; 向下找到Github Pages.
 
-   .. image:: image/20191029_点击settings.*
+   .. image:: image/20191029_点击settings.png
 
    如果新建的存储库的名称正好符合**username.github.io**的格式, 那么无法选择Source, 如下图示, 同时, 可以直接通过**https://username.github.io**来访问, 否则, 必须要通过*https://username.github.io/<存储库名称>**来访问.
 
-   .. image:: image/20191029_GithubPages设置_1.*
+   .. image:: image/20191029_GithubPages设置_1.png
 
    否则, 会出现选择Source的下拉列表, 如下图所示. 最好是选择第二项**master branch/docs older**, 如果存储库中没有docs文件夹, 该项灰显, 无法选中.
 
-   .. image:: image/20191029_GithubPages设置_2.*
+   .. image:: image/20191029_GithubPages设置_2.png
 
    **注意:** 这里需要做一个取舍. 如果想实现直接通过 ``https://username.github.io`` 的格式访问, 那么无法选择 ``docs`` 作为 ``Github Pages`` 的源位置; 如果想实现 ``docs`` 作为 ``Github Pages`` 的源位置, 那么不能直接通过 ``https://username.github.io`` 的格式访问(或者有其他方法, 我不了解).
 
