@@ -11,7 +11,7 @@ Demo 测试
 
     而且 **_static** 目录中的所有内容, 会原封不动的复制到对应的 **_static** 目录中, 如果把图片放在该文件夹中.
 
-.. image:: images/200px-Rotating_earth_(large).gif
+.. image:: /images/2020/200px-Rotating_earth_(large).gif
     :width: 200px
     :height: 200px
     :scale: 100
@@ -126,7 +126,7 @@ Here is a citation reference: [CIT2002]_.
 my name is |name|.
 
 
-.. |picture| image:: images/200px-Rotating_earth_(large).gif
+.. |picture| image:: /images/2020/200px-Rotating_earth_(large).gif
              :scale: 10
 
 my picture is |picture|.
