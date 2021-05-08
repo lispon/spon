@@ -1,0 +1,59 @@
+################################################################################
+一些公开的激活码
+################################################################################
+
+********************************************************************************
+Visual Studio
+********************************************************************************
+
+#. `VS2015 专业版`_ ``HMGNV-WCYXV-X7G9W-YCX63-B98R2``
+#. `VS2015 企业版`_ ``HM6NR-QXX7C-DFW2Y-8B82K-WTYJV``
+#. `VS2017 专业版`_ ``KBJFW-NXHK6-W4WJM-CRMQB-G3CDH``
+#. `VS2017 企业版`_ ``NJVYC-BMHX2-G77MM-4XJMR-6Q8QF``
+#. `VS2019 专业版`_ ``NYWVH-HT4XC-R2WYW-9Y3CM-X4V3Y``
+#. `VS2019 企业版`_ ``BF8Y8-GN2QH-T84XB-QVY3B-RC4DF``
+
+.. _`VS2015 专业版`: http://download.microsoft.com/download/B/8/9/B898E46E-CBAE-4045-A8E2-2D33DD36F3C4/vs2015.pro_chs.iso
+.. _`VS2015 企业版`: http://download.microsoft.com/download/B/8/F/B8F1470D-2396-4E7A-83F5-AC09154EB925/vs2015.ent_chs.iso
+.. _`VS2017 专业版`: https://download.microsoft.com/download/0/C/3/0C3F5C94-40C4-4BF4-8D18-BEEAF47AE687/vs_Professional.exe
+.. _`VS2017 企业版`: https://download.microsoft.com/download/4/2/9/429C6D6F-543E-4BB4-A2C7-4EFA7F8DE59D/vs_Enterprise.exe
+.. _`VS2019 专业版`: https://download.visualstudio.microsoft.com/download/pr/befdb1f9-8676-4693-b031-65ee44835915/3aff2b586958ab9503dae0dac0f5b89aaaccca880a3d394b74709b97e3ffcef4/vs_Professional.exe
+.. _`VS2019 企业版`: https://download.visualstudio.microsoft.com/download/pr/befdb1f9-8676-4693-b031-65ee44835915/aca15725008ae4ddc04b7509bd98f448f99e48b0ff773ed0f6aeea4194cf32d5/vs_Enterprise.exe
+
+
+********************************************************************************
+VMware Workstation Pro
+********************************************************************************
+
+#. 官网地址_
+
+#. 他人整理的历史版本_
+
+#. `VMware Workstation Pro 16`_
+
+    ``YF390-0HF8P-M81RQ-2DXQE-M2UT6``
+
+#. `VMware Workstation Pro 15`_
+
+    ``UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA``
+
+    ``VF750-4MX5Q-488DQ-9WZE9-ZY2D6``
+
+    ``UU54R-FVD91-488PP-7NNGC-ZFAX6``
+
+#. `VMware Workstation Pro 10.0.7`_
+
+    ``1Z0G9-67285-FZG78-ZL3Q2-234JG``
+    
+    ``4C4EK-89KDL-5ZFP9-1LA5P-2A0J0``
+    
+    ``HY086-4T01N-CZ3U0-CV0QM-13DNU``
+
+.. _官网地址: https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
+.. _他人整理的历史版本: https://github.com/201853910/VMwareWorkstation
+.. _`VMware Workstation Pro 10.0.7`: https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.7-2844087.exe
+.. _`VMware Workstation Pro 15`:
+.. _`VMware Workstation Pro 16`:
+
+.. note::
+    注意: 如果是WinXP或32位系统请用 10.x 版本, 最新版本为 ``10.0.7``; 11.x 版本之后支持Win7或更高版64位系统.

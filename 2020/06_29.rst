@@ -1,0 +1,15 @@
+********************************************************************************
+在 ubuntu 中使用 apt-get 安装 Qt
+********************************************************************************
+
+- 时间: 2020-06-29
+- Ubuntu 20.04LTS
+- qt5-default 为 Qt5.12.8
+
+``sudo apt-get install qtcreator qt5-default qt5-doc qt5-doc-html qtbase5-doc-html qtbase5-examples``
+
+具体可能还需要不同的软件包, 请参数 **ubuntu packages:** https://packages.ubuntu.com/search?keywords=qt&searchon=names&suite=focal&section=all
+
+若在 Qt Creator 中 **工具/选项/Kits/Qt Versions** 出现黄色感叹号, 且下方出现 **qmlscene未安装**, 使用 ``sudo apt-get install qtdeclarative5-dev`` 解决.
+
+新建工程后, 大概率会出现 **The code model could not parse an include file** 的警告, 且会大量出现, 但是不影响编译. 临时解决方式, 在当前工程的 pro 文件的最后添加 ``INCLUDEPATH += /usr/lib/gcc/x86_64-linux-gnu/9/include``. 后续, Qt官方应该会修复这个问题, 主要是插件 **ClangCodeModel** 的问题. 该问题的解决参考: https://www.cnblogs.com/coding-my-life/p/12905729.html

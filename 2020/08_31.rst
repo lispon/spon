@@ -1,0 +1,106 @@
+################################################################################
+window 下编译 OpenCPN
+################################################################################
+
+********************************************************************************
+官方帮助文档
+********************************************************************************
+
+opencpn-wiki_
+
+.. _opencpn-wiki: https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:developer_guide:compiling_windows
+
+********************************************************************************
+编译实践
+********************************************************************************
+
+================================================================================
+需求
+================================================================================
+
+#. Git
+#. Visual Studio 2017
+#. 7-Zip (或其他压缩软件)
+#. wxWidgets 3.1.2 源码
+#. OpenCPN 5.0.0 源码 (截止到 2020-08-31, 最新版为 5.2.0)
+
+================================================================================
+编译步骤
+================================================================================
+
+安装 Visual Studio 2017
+--------------------------------------------------------------------------------
+
+- 工作负载选择 **使用C++的桌面开发**, 包括 **对C++的Window XP支持**, 该组件在 *单个组件* 中可以找到, 也可以在右侧 *安装详细信息* 中找到.
+- 选择 **Window X SDK** 组件, 通常安装最新版本, 一般选择window 10.
+
+编译 wxWidgets
+--------------------------------------------------------------------------------
+
+#. 源码保存路径 ``D:\Sources\wxWidgets``, 显然, 可以使用其他目录.
+
+#. 打开VS 2017的 **x86 Native Tools命令提示符** (在Windows 10中，通过键入Windows开始按钮x86 Native…等旁边的搜索框)，并执行以下命令：
+
+    .. code-block:: shell
+
+        cd D:\Sources
+        git clone -b v3.1.2 https://github.com/wxWidgets/wxWidgets
+        cd wxWidgets
+        git submodule init
+        git submodule update
+
+        cd build\msw
+        nmake /f makefile.vc BUILD=release SHARED=1 CXXFLAGS=/D_USING_V141_SDK71_   CFLAGS=/D_USING_V141_SDK71_ LDFLAGS=/SUBSYSTEM:WINDOWS,5.01
+        nmake /f makefile.vc BUILD=debug SHARED=1 CXXFLAGS=/D_USING_V141_SDK71_ CFLAGS=/    D_USING_V141_SDK71_ LDFLAGS=/SUBSYSTEM:WINDOWS,5.01
+
+#. 将环境变量wxWIDGETS_ROOT_DIR设置为 wxWidgets源树的顶级目录的值, 是 ``D:\Sources``.
+
+.. note::
+    #. 经测试在Visual Studio 2019中, 即使安装 MSVC2017的编译器, 仍无法编译.
+
+    #. 上面的命令是使用从 GitHub 下载源代码, 然后构建 release 和 debug 版本. 除了使用 `git clone` 命令外, 还可以从 github_ 手动下载 wxWidgets 源代码.
+
+    #. 还可以从 wxWidgets-3.1.2.7z_ 直接下载已经编译完成的 wxWidgets 环境, 但是, 仅包含 release 版本, 不太适合作开发或调试.
+
+    .. _github: https://github.com/wxWidgets/wxWidgets/releases
+    .. _wxWidgets-3.1.2.7z: http://opencpn.navnux.org/build_deps/wxWidgets-3.1.2.7z
+
+获取并编译 OpenCPN
+--------------------------------------------------------------------------------
+
+#. 源码保存路径 ``D:\Sources\OpenCPN``, 显然, 也可以使用其他目录, 但是, 在执行下步操作后, 再更改代码的路径会导致无法编译.
+
+#. 从 OpenCPN_buildwin-4.99a.7z_ 下载预编译的 Windows 依赖项, 解压到 ``D:Sources\OpenCPN\buildwin`` 文件夹中.
+
+.. _OpenCPN_buildwin-4.99a.7z: http://opencpn.navnux.org/build_deps/OpenCPN_buildwin-4.99a.7z
+
+#. 打开VS 2017的 **x86 Native Tools命令提示符** (在Windows 10中，通过键入Windows开始按钮x86 Native…等旁边的搜索框)，并执行以下命令：
+
+    .. code-block:: shell
+
+        cd D:\Sources\OpenCPN
+        mkdir build
+        cd build
+        cmake -G "Visual Studio 15 2017" -T v141_xp ..
+
+        cmake --build .
+        cmake --build . --config release
+        cmake --build . --config release --target package
+
+#. 这些命令会在 ``D:\Sources\OpenCPN\build\opencpn_5.0.0_setup.exe`` 路径下生成安装包; 然后执行该程序, 选择安装OpenCPN, 建议选择 ``C:\Program Files (x86)\OpenCPN`` 作为安装路径, 避免安装插件时出现不必要的问题.
+
+
+
+#. 除了使用上页命令中 **最后三个cmake命令**, 还可以使用 **Visual Studio** 来打开生成的解决方案 **OpenCPN.sln**, 然后在此构建; 建议使用 **Visual Studio** 打开解决方案.
+
+#. 从 copyfiles.bat.doc_ 下载文件, 删除后缀 ``.doc``, 执行该批处理命令, 自动复制一些文件; 该批处理不执行任何 **cmake** 命令.
+
+.. _copyfiles.bat.doc: https://opencpn.org/wiki/dokuwiki/lib/exe/fetch.php?media=opencpn:dev:copyfiles.bat.doc
+
+#. 在实际构建过程中, 发现无法编译, 问题出在 ``options.cpp`` 文件的 **8834** 行的 **繁体**, 具体原因不是特别清楚(该源文件的编码格式已经是utf8, 毕竟都支持.hu 匈牙利的语言.), 将 **繁体** 改为 **zh_TW** 后, 编译成功.
+
+#. 运行发现, 提示找不着 **opencpn.exe**, 但是在生成路径中存在该文件, 这里就需要修改一下 **ALL_BUILD** 项目的属性. OpenCPN解决方案下, 有51个项目, 但是启动项目是 **ALL_BUILD**. 解决方案配置存在四种, **Debug**, **MinSizeRel**, 每个配置都需要执行一下下面的操作.
+
+    #. 右键 ``ALL_BUILD`` 项目, 选择 ``属性``, 左侧选择 ``配置属性/常规``, 将 ``目标文件名`` 由 ``ALL_BUILD`` 改为 ``opencpn.exe``. (解决的错误: 开始调试, 提示找不到 **opencpn.exe** 文件.)
+
+    #. 右键 ``ALL_BUILD`` 项目, 选择 ``属性``, 左侧选择 ``配置属性/调试``, 在 ``环境`` 添加 ``path=$(SolutionDir)$(Configuration)\wxWidgets``, 这是指定 wxWidgets的一些 dll 依赖项. (解决的错误: 找不到 wxbase312ud_net_vc_custom.dll, 这种类似的错误.)
