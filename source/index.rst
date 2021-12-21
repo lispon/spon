@@ -17,8 +17,8 @@ readme, 简介, 友链, 等等.
 This document was generated on |date| at |time|.
 
 .. toctree::
-   :maxdepth: 2
-   :numbered: 3
+   :maxdepth: 3
+   :numbered: 6
    :caption: 目录:
 
    usingrst/usingrst

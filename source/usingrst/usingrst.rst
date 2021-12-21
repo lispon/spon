@@ -1,11 +1,11 @@
 ################################################################################
-Part-usingrst
+Part - 如何使用 sphinx 及 reStructuredText
 ################################################################################
 
-使用 restructure text.
+使用 reStructuredText.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: Contents:
 
    restructure_tutorial/restructure_tutorial
