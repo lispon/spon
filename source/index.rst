@@ -10,9 +10,9 @@ Welcome to [Prject Name]'s documentation!
 readme, 简介, 友链, 等等.
 
 .. |date| date::
-.. |time| date:: %H:%M
+.. |time| date:: %H:%M:%S (%Z)
 
-构建日期: |date| |time|
+.. date 及 time 的格式可以参考: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 
 This document was generated on |date| at |time|.
 
