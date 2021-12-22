@@ -80,10 +80,42 @@ reStructure 开始
 待定
 ================================================================================
 
+attention", "caution", "danger", "error", "hint", "important", "note", "tip", "warning", "admonition
+
+.. attention::
+    attention
+
+.. caution::
+    caution
+
+.. danger::
+    danger
+
+.. error::
+    error
+
+.. hint::
+    hint
+
+.. important::
+    important
+
+.. note::
+    note
+
+.. tip::
+    tip
+
+.. warning::
+    warning
+
+.. admonition:: And, by the way...
+
+   You can make up your own admonition too.
+
 
 脚注
-引文
 
-提示
+引文
 
 替换
