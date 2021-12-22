@@ -67,3 +67,8 @@ source_suffix = {
     '.rst': 'restructuredtext',
     # '.md': 'markdown',
 }
+
+# https://stackoverflow.com/questions/56336234/build-fail-sphinx-error-contents-rst-not-found
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-root_doc
+master_doc = 'index'
+root_doc = 'index'
