@@ -26,7 +26,7 @@ Linux 下使用 qmake 及 cmake 编译及运行 QGIS 程序
 
 .. code:: cmake
 
-    if( UNIX ) {
+    if( UNIX )
         # 根据实际情况修改, 该文件夹下存在 FindQGIS.cmake
         set(CMAKE_MODULE_PATH "/usr/share/qgis;${CMAKE_MODULE_PATH}")
 
@@ -48,4 +48,4 @@ Linux 下使用 qmake 及 cmake 编译及运行 QGIS 程序
             qgis_core
             qgis_gui
         )
-    }
+    endif()

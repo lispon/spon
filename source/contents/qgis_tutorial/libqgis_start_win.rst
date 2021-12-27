@@ -75,7 +75,7 @@ QGIS 基于 Qt, 正常思路, 我们接下来需要安装 ``Qt`` 及 ``Qt Creato
 
 .. code:: cmake
 
-    if( WIN32 ) {
+    if( WIN32 )
         # 根据实际情况修改.
         set(QGIS_FOUND "E:/OSGeo4W/apps/qgis-ltr-dev/lib")
         # 根据实际情况修改, 该文件夹下存在 FindQGIS.cmake
@@ -99,4 +99,4 @@ QGIS 基于 Qt, 正常思路, 我们接下来需要安装 ``Qt`` 及 ``Qt Creato
             qgis_core
             qgis_gui
         )
-    }
+    endif()
