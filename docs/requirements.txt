@@ -1,0 +1,50 @@
+alabaster @ file:///home/conda/feedstock_root/build_artifacts/alabaster_1704848697227/work
+attrs==23.2.0
+Babel @ file:///home/conda/feedstock_root/build_artifacts/babel_1702422572539/work
+Brotli @ file:///home/conda/feedstock_root/build_artifacts/brotli-split_1695989787169/work
+cattrs==23.2.3
+certifi @ file:///croot/certifi_1720453481653/work/certifi
+cffi @ file:///home/conda/feedstock_root/build_artifacts/cffi_1696001721842/work
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1698833585322/work
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+docutils @ file:///home/conda/feedstock_root/build_artifacts/docutils_1701882580574/work
+esbonio @ file:///home/conda/feedstock_root/build_artifacts/esbonio_1705095472782/work
+h2 @ file:///home/conda/feedstock_root/build_artifacts/h2_1634280454336/work
+hpack==4.0.0
+hyperframe @ file:///home/conda/feedstock_root/build_artifacts/hyperframe_1619110129307/work
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1713279365350/work
+imagesize @ file:///home/conda/feedstock_root/build_artifacts/imagesize_1656939531508/work
+importlib_metadata @ file:///home/conda/feedstock_root/build_artifacts/importlib-metadata_1721773157721/work
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1715127149914/work
+lsprotocol @ file:///home/conda/feedstock_root/build_artifacts/lsprotocol_1705848421495/work/dist
+MarkupSafe @ file:///home/conda/feedstock_root/build_artifacts/markupsafe_1706899920239/work
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
+platformdirs==4.2.2
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1711811537435/work
+pygls @ file:///home/conda/feedstock_root/build_artifacts/pygls_1711492161986/work/dist
+Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1714846767233/work
+PySocks @ file:///home/conda/feedstock_root/build_artifacts/pysocks_1661604839144/work
+pyspellchecker==0.8.1
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1706886791323/work
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1717057054362/work
+setuptools==71.0.4
+snowballstemmer @ file:///home/conda/feedstock_root/build_artifacts/snowballstemmer_1637143057757/work
+Sphinx @ file:///home/conda/feedstock_root/build_artifacts/sphinx_1721487534232/work
+sphinx-multiversion @ file:///home/conda/feedstock_root/build_artifacts/sphinx-multiversion_1676313531885/work
+sphinx_rtd_theme @ file:///croot/sphinx_rtd_theme-split_1720688682497/work
+sphinxcontrib-applehelp @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-applehelp_1705126298355/work
+sphinxcontrib-devhelp @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-devhelp_1705126010477/work
+sphinxcontrib-htmlhelp @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-htmlhelp_1721493974745/work
+sphinxcontrib-jquery @ file:///croot/sphinxcontrib-jquery_1715871983754/work
+sphinxcontrib-jsmath @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-jsmath_1691604704163/work
+sphinxcontrib-mermaid @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-mermaid_1685307659282/work
+sphinxcontrib-qthelp @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-qthelp_1721493462031/work
+sphinxcontrib-serializinghtml @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-serializinghtml_1705118225549/work
+sphinxcontrib-video @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-video_1716264432556/work
+sphinxcontrib-youtube @ file:///home/conda/feedstock_root/build_artifacts/sphinxcontrib-youtube_1695389734702/work
+tomli @ file:///home/conda/feedstock_root/build_artifacts/tomli_1644342247877/work
+typing_extensions @ file:///croot/typing_extensions_1715268824938/work
+urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1719391292974/work
+wheel==0.43.0
+zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1718013267051/work
+zstandard==0.23.0
