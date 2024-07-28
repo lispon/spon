@@ -11,12 +11,18 @@ LiDAR
 
 .. note::
     下图中的激光只有 1 个, 实际情况中可能有 16 个, 128 等多种情况.
+
     比如: vlp16 型号有 16 个(一般称16 线激光雷达), 且 16 个激光是按照固定顺序依次发送的, 并非同时发送.
+
 
 .. image:: images/LIDAR-scanned-SICK-LMS-animation.gif
     :width: 200px
+
 
 .. toctree::
     :hidden:
 
     vlp16
+
+.. 又是单个 rst 文件内容非常多, 可以通过 ``.. include: other.rst`` 引入其他文件.
+.. 但是, 这个情况下, 如果有 链接, 引用, 暂不知道如何处理. 所以, 目前暂不使用 include 功能.
