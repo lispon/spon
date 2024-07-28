@@ -19,3 +19,4 @@ documentation for details.
    vscode/index
    document/index
    sensor/index
+   about/index
