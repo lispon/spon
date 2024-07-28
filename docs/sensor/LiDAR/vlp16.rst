@@ -161,6 +161,106 @@ vlp16 RPM 范围为 **[300, 1200]**, 必须保证可以被 60 整除, 否则, �
 .. note:: 再次想象一下激光雷达每个激光点的发射: 电机带动激光发射器水平方向匀速转动, 垂直不均匀分布的 16 个发射点依次间隔发射...
 
 
+wireshark lua
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. todo::
+
+   #. 加载 200 MB 文件, 总共 ``182036`` 个报文, 解析完成时间 ``02:48``. 时间有点过于长, 后续再看.
+   #. 单位没有转换
+
+
+.. code-block:: lua
+
+    --
+    do
+        --
+        local p_velodyne_data = Proto("velodyne", "velodyne")
+        -- ProtoField
+        local f_flag = ProtoField.uint16("flag", "flag", base.HEX, {
+            [0xEEFF] = "OK"
+        })
+        local f_azimuth = ProtoField.uint16("azimuth", "azimuth", base.DEC)
+        local f_distance = ProtoField.uint16("distance", "distance", base.DEC)
+        local f_intensity = ProtoField.uint8("intensity", "intensity", base.DEC)
+        local f_timestamp = ProtoField.uint64("timestamp")
+        local f_mode = ProtoField.uint8("mode", "return mode", base.HEX, {
+            [0x37] = "Strongest",
+            [0x38] = "Last Return",
+            [0x39] = "Dual Return",
+        })
+        local f_produce = ProtoField.uint8("product", "product model", base.HEX, {
+            [0x21] = "HDL-32E",
+            [0x22] = "VLP-16 or Puck LITE",
+            [0x24] = "Puck Hi-Res",
+            [0x28] = "VLP-32C",
+            [0x31] = "Velarray",
+            [0xA1] = "VLS-128",
+        })
+
+        p_velodyne_data.fields = { f_flag, f_azimuth, f_distance, f_intensity,
+            f_timestamp, f_mode, f_produce
+        }
+        --
+        local function vlp16_dissector(tvb, pinfo, tree)
+        end
+
+        local function velodyne_dissector(tvb, pinfo, tree)
+            local buf_size = tvb:len()
+            if tvb:len() ~= 1206 then
+                return false
+            end
+            local sub_tree = tree:add(p_velodyne_data, tvb(), "Velodyne")
+            -- DataBlock
+            local data_block_index = 0
+            for i = 0, 1200 -1, 100 do
+                local data_block_tree = sub_tree:add(p_velodyne_data, tvb:range(i, 100), "DataBlock "..data_block_index)
+                data_block_index = data_block_index + 1
+
+                local flag = tvb:range(i, 2)
+                data_block_tree:add_le(f_flag, flag)
+                if flag:le_uint() == 0xEEFF then
+                    local azimuth = tvb:range(flag:offset() + flag:len(), 2)
+                    data_block_tree:add_le(f_azimuth, azimuth)
+                    -- Point
+                    local point_index = 0
+                    for j = azimuth:offset() + azimuth:len(), i + 100 - 1, 3 do
+                        local point_tree = data_block_tree:add(p_velodyne_data, tvb:range(j, 3), "Point "..point_index)
+                        point_index = point_index + 1
+
+                        local distance = tvb:range(j, 2)
+                        point_tree:add_le(f_distance, distance)
+                        local intensity = tvb:range(distance:offset() + distance:len(), 1)
+                        point_tree:add(f_intensity, intensity)
+                    end
+                end
+            end
+
+            local timestamp = tvb:range(buf_size - 6, 4)
+            sub_tree:add_le(f_timestamp, timestamp)
+
+            local mode = tvb:range(timestamp:offset() + timestamp:len(), 1)
+            sub_tree:add(f_mode, mode)
+
+            local product = tvb:range(mode:offset() + mode:len(), 1)
+            sub_tree:add(f_produce, product)
+            return true
+        end
+
+        function p_velodyne_data.dissector(tvb, pinfo, tree)
+            if not velodyne_dissector(tvb, pinfo, tree) then
+                --
+                Dissector.get("data"):call(tvb, pinfo, tree)
+            end
+        end
+        --
+        DissectorTable.get("udp.port"):add(2368, p_velodyne_data)
+    end
+
+.. image:: images/vlp6-wireshark_lua.png
+
+
 ros driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

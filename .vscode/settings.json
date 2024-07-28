@@ -15,6 +15,7 @@
         "struct",
         "toctree",
         "velodyne",
+        "wireshark",
         "XYZIRT"
     ],
     "makefile.configureOnOpen": false
