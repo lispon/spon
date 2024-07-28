@@ -2,6 +2,7 @@
     "cSpell.words": [
         "dirhtml",
         "distro",
+        "Eigen",
         "htmlzip",
         "laserscan",
         "maxdepth",
@@ -13,7 +14,8 @@
         "spon",
         "struct",
         "toctree",
-        "velodyne"
+        "velodyne",
+        "XYZIRT"
     ],
     "makefile.configureOnOpen": false
 }

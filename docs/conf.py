@@ -18,7 +18,9 @@ release = '0.1.0'
 
 # search contrib from https://github.com/topics/sphinx-extension
 extensions = [
+    'sphinx.ext.todo',
     'sphinx_rtd_theme',
+    'sphinx_copybutton',
     'sphinx_multiversion',
     'sphinxcontrib.mermaid',
     'sphinxcontrib.youtube',
@@ -30,6 +32,8 @@ exclude_patterns = []
 
 # language = 'zh_CN'
 language = 'en'
+
+todo_include_todos = True
 
 # || Options for HTML output -------------------------------------------------
 # vv
@@ -59,6 +63,8 @@ html_static_path = ['_static']
 
 # || Mermaid configuration
 # vv
-
+# see: https://github.com/mgaitan/sphinxcontrib-mermaid/blob/master/sphinxcontrib/mermaid.py#L427
+mermaid_version = 'latest'
+mermaid_d3_zoom = True
 # ^^
 # || END Mermaid configuration

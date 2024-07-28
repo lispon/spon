@@ -18,4 +18,4 @@ documentation for details.
 
    vscode/index
    document/index
-   LiDAR/index
+   sensor/index
